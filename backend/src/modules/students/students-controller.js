@@ -31,7 +31,17 @@ console.log("alextest handleAddStudent, req.body4: " + req.body.section);
 
 const handleUpdateStudent = asyncHandler(async (req, res) => {
     //write your code
-
+    const { id: userId } = req.params;
+//    const payload = req.body; // calling the same storedproc in addOrUpdateStudent
+    const payload = {
+                    name: req.body.name,
+                    email: req.body.email,
+                    class: req.body.class,
+                    section: req.body.section,
+                    ...req.body
+                    };
+    const message = await updateStudent({ ...payload, userId });
+    res.json(message);
 });
 
 const handleGetStudentDetail = asyncHandler(async (req, res) => {
@@ -43,7 +53,7 @@ const handleGetStudentDetail = asyncHandler(async (req, res) => {
 
 const handleStudentStatus = asyncHandler(async (req, res) => {
     //write your code
-
+    
 });
 
 module.exports = {
