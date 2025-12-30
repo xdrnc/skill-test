@@ -34,6 +34,9 @@ const addNewStudent = async (payload) => {
     const ADD_STUDENT_AND_BUT_EMAIL_SEND_FAIL = "Student added, but failed to send verification email.";
     try {
         const result = await addOrUpdateStudent(payload);
+        console.log("alextest addOrUpdateStudent result:", result);
+
+        console.log("alextest, result: " + result.status);
         if (!result.status) {
             throw new ApiError(500, result.message);
         }

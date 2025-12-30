@@ -8,7 +8,25 @@ const handleGetAllStudents = asyncHandler(async (req, res) => {
 
 const handleAddStudent = asyncHandler(async (req, res) => {
     //write your code
+    /*
+        const payload = req.body;
+    const message = await addNewStudent(payload);
+    res.json("alextest addstudent: " + message);
+    ApiError: Unable to add student
+    */
+//    const payload = req.body;
+    const payload = {
+                    name: `${req.body.firstName} ${req.body.lastName}`,
+                    email: req.body.email,
+                    class: req.body.grade,
+                    section: req.body.section,
+                    ...req.body
+                    };
 
+console.log("alextest, payload while adding student: " + payload);
+    const message = await addNewStudent(payload);
+        console.log("alextest, message: " + message);
+    res.json(message);
 });
 
 const handleUpdateStudent = asyncHandler(async (req, res) => {
