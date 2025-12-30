@@ -52,8 +52,13 @@ const handleGetStudentDetail = asyncHandler(async (req, res) => {
 });
 
 const handleStudentStatus = asyncHandler(async (req, res) => {
-    //write your code
-    
+    //write your code http://localhost:5007/api/v1/students/3/status
+    const {status} = req.body;
+    const { id: userId } = req.params;
+    const { id: reviewerId } = req.user;
+
+    const message = await setStudentStatus({userId, reviewerId, status});
+    res.json(message);
 });
 
 module.exports = {
