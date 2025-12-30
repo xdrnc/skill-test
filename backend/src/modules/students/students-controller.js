@@ -3,7 +3,9 @@ const { getAllStudents, addNewStudent, getStudentDetail, setStudentStatus, updat
 
 const handleGetAllStudents = asyncHandler(async (req, res) => {
     //write your code
-
+    const { name, className, section, roll } = req.query;
+    const students = await getAllStudents({ name, className, section, roll });
+    res.json({students});
 });
 
 const handleAddStudent = asyncHandler(async (req, res) => {
