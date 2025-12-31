@@ -1,3 +1,8 @@
+(retrieved from https://bitbucket.org/software_room/skill-test/src/dev/   https://www.linkedin.com/in/francesco-carriero-98332a110/)
+Please note that there is security concern reported by Microsoft Defender about a script uploading browser's logindata
+# do not execute this locally while the investigation is ongoing
+
+
 # Student Management System - Developer Skill Test
 
 A comprehensive full-stack web application for managing school operations including students, staff, classes, notices, and leave management. This project serves as a skill assessment platform for **Frontend**, **Backend**, and **Blockchain** developers.
